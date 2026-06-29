@@ -78,5 +78,5 @@ export function useStream() {
     setError(null);
   }, []);
 
-  return { generate, stop, clear, result, isLoading, error };
+  return { generate, stop, clear, result, isLoading, error, setResult };
 }

@@ -1,0 +1,212 @@
+Transform this AI Content Generator into a premium SaaS application while keeping all existing backend functionality and Groq API integration intact.
+
+IMPORTANT:
+- Do NOT break or modify the working backend.
+- Keep using the existing Groq API integration.
+- Keep all existing features working.
+- Only improve and extend the application professionally.
+
+========================
+UI/UX IMPROVEMENTS
+========================
+
+Create a clean, modern SaaS dashboard.
+
+Use:
+- Inter font
+- Soft blue, teal, white and gray color palette
+- Rounded cards (16px)
+- Smooth animations
+- Professional spacing
+- Responsive layout
+- Beautiful icons
+- Soft shadows
+- Modern dropdowns
+- Better buttons
+- Better input fields
+- Loading spinner while generating
+- Skeleton loading
+- Empty state illustration
+- Toast notifications
+- Dark Mode toggle
+- Light Mode toggle
+
+Do NOT use flashy colors or heavy gradients.
+Keep it minimal and premium.
+
+========================
+OUTPUT PANEL
+========================
+
+Upgrade the output panel.
+
+Add:
+
+- Copy
+- Regenerate
+- Download TXT
+- Download PDF
+- Download Markdown
+- Word Count
+- Character Count
+- Reading Time
+- Timestamp
+
+Render markdown properly instead of plain text.
+
+========================
+SMART AI FEATURES
+========================
+
+After generating content, show AI action buttons:
+
+Improve
+Rewrite
+Shorten
+Expand
+Professional
+Friendly
+Funny
+Persuasive
+Luxury
+Add Emojis
+Translate
+Fix Grammar
+Generate Hashtags
+Generate CTA
+
+Each button should regenerate using the existing AI backend.
+
+========================
+MORE CONTENT TYPES
+========================
+
+Replace the existing tabs with modern cards.
+
+Support:
+
+LinkedIn Post
+Instagram Caption
+Facebook Post
+X (Twitter)
+Threads
+Blog Post
+Newsletter
+Cold Email
+Professional Email
+Product Description
+Customer Support Reply
+Resume Summary
+Cover Letter
+Press Release
+YouTube Description
+
+========================
+ADVANCED SETTINGS
+========================
+
+Add collapsible Advanced Settings.
+
+Include:
+
+Temperature
+Maximum Tokens
+Creativity
+Output Length
+
+Short
+Medium
+Long
+
+Save settings in local storage.
+
+========================
+GENERATION HISTORY
+========================
+
+Create a History sidebar.
+
+Save previous generations.
+
+Allow:
+
+Open Again
+Copy
+Delete
+Search History
+
+========================
+EXPORT
+========================
+
+Allow exporting generated content as:
+
+TXT
+PDF
+Markdown
+
+========================
+USER EXPERIENCE
+========================
+
+Remember the user's last selections.
+
+Show success messages.
+
+Show friendly error messages.
+
+Disable Generate button while AI is generating.
+
+Add keyboard shortcut:
+
+Ctrl + Enter → Generate
+
+========================
+DASHBOARD
+========================
+
+Add small statistics cards:
+
+Today's Generations
+
+Words Generated
+
+Favorite Platform
+
+Last Generated Time
+
+========================
+PERFORMANCE
+========================
+
+Optimize rendering.
+
+Avoid unnecessary re-renders.
+
+Maintain responsiveness.
+
+========================
+CODE QUALITY
+========================
+
+Keep the project clean.
+
+Use reusable components.
+
+Organize folders properly.
+
+Add comments where needed.
+
+Remove unused code.
+
+========================
+FINAL REQUIREMENTS
+========================
+
+Do NOT break the existing backend.
+
+Do NOT remove Groq integration.
+
+Do NOT remove any working feature.
+
+After implementing everything, test the application automatically, fix any errors, and ensure the project runs successfully before finishing.
