@@ -75,17 +75,6 @@ lib/
 scripts/
 ```
 
-## 🚀 Getting Started
-
-```bash
-git clone https://github.com/sinyaakumarii/digital-employee-ai.git
-
-cd digital-employee-ai
-
-npm install
-
-npm run dev
-```
 
 ## 🔑 Environment Variables
 
