@@ -95,17 +95,11 @@ Create a `.env` file:
 GROQ_API_KEY=your_api_key_here
 ```
 
-## 📸 Screenshots
-
-Add screenshots of the application here.
 
 ## 👨‍💻 Author
 
-**Yougesh Kumar**
+**Sinya Kumari**
 
-Software Engineering Student
-
-AI • Full Stack Development • Automation
 
 ## ⭐ If you like this project
 
