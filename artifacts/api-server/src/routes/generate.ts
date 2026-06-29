@@ -1,13 +1,13 @@
 import { Router } from "express";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 import { GenerateContentBody } from "@workspace/api-zod";
 
 const router = Router();
 
 function getClient() {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) throw new Error("GEMINI_API_KEY is not configured");
-  return new GoogleGenerativeAI(apiKey);
+  const apiKey = process.env.GROQ_API_KEY;
+  if (!apiKey) throw new Error("GROQ_API_KEY is not configured");
+  return new Groq({ apiKey });
 }
 
 function buildPrompt(taskType: string, fields: Record<string, string>): string {
@@ -72,12 +72,16 @@ router.post("/generate", async (req, res) => {
   res.flushHeaders();
 
   try {
-    const genAI = getClient();
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-    const result = await model.generateContentStream(prompt);
+    const groq = getClient();
+    const stream = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
+      max_tokens: 1024,
+      messages: [{ role: "user", content: prompt }],
+      stream: true,
+    });
 
-    for await (const chunk of result.stream) {
-      const content = chunk.text();
+    for await (const chunk of stream) {
+      const content = chunk.choices[0]?.delta?.content;
       if (content) {
         res.write(`data: ${JSON.stringify({ content })}\n\n`);
       }
