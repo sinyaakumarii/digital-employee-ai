@@ -1,0 +1,174 @@
+Build a complete, modern AI-powered web application called "Digital Employee AI".
+
+Objective:
+Create a mini autonomous AI Agent that accepts user input, processes it using the OpenAI API, and performs automated business tasks. The application should be production-ready, responsive, and visually appealing.
+
+Tech Stack:
+- Python
+- Flask
+- OpenAI API (latest SDK)
+- HTML
+- CSS
+- JavaScript
+- Bootstrap 5
+- python-dotenv
+
+Project Structure:
+- app.py
+- templates/
+    - index.html
+- static/
+    - style.css
+    - script.js
+- .env
+- requirements.txt
+- README.md
+
+Features:
+
+1. Beautiful Landing Page
+- Modern UI with gradient background
+- Glassmorphism cards
+- Responsive design
+- Professional business theme
+- Animated buttons and smooth transitions
+
+2. AI Digital Employee Dashboard
+
+Display a title:
+
+🤖 Digital Employee AI
+
+Subtitle:
+
+"Your autonomous AI assistant for everyday business tasks."
+
+3. User chooses one task from a dropdown:
+
+- Generate Social Media Post
+- Write Professional Email
+- Summarize Text
+- Generate Product Description
+- Answer Customer Query
+
+4. Input Form
+
+If Social Media:
+- Product Name
+- Target Audience
+- Platform
+- Tone
+
+If Email:
+- Recipient
+- Purpose
+- Tone
+
+If Summary:
+- Large text area
+
+If Product Description:
+- Product Name
+- Features
+- Target Customers
+
+If Customer Query:
+- Customer question
+
+Use JavaScript to dynamically show only the required fields.
+
+5. AI Processing
+
+When the user clicks "Generate", create a professional prompt and send it to the OpenAI API using the latest Python SDK.
+
+Use:
+
+from openai import OpenAI
+
+client = OpenAI()
+
+Use model:
+
+gpt-4.1-mini
+
+Return only the AI response.
+
+6. Results Page
+
+Display the generated response inside a beautiful card.
+
+Include:
+
+- Copy button
+- Clear button
+- Generate Again button
+
+7. Loading Animation
+
+While waiting for the AI response show:
+
+"🤖 Digital Employee is thinking..."
+
+with a spinner.
+
+8. Error Handling
+
+If the API key is missing or invalid, show a clean Bootstrap alert.
+
+9. Environment Variables
+
+Store API key in:
+
+.env
+
+OPENAI_API_KEY=YOUR_KEY
+
+Use python-dotenv.
+
+10. Requirements
+
+Generate a complete requirements.txt.
+
+11. README
+
+Explain:
+- Installation
+- Running locally
+- Setting API key
+- Features
+- Technologies used
+
+12. Code Quality
+
+Write clean, modular, commented code.
+
+13. UI
+
+Use:
+- Bootstrap 5
+- Rounded cards
+- Shadows
+- Hover effects
+- Icons
+- Mobile responsive layout
+
+Color palette:
+- Blue
+- Purple
+- White
+- Soft gradients
+
+14. Bonus
+
+Add:
+- Character counter for textareas
+- Dark mode toggle
+- Download result as .txt
+- Copy to clipboard
+- Enter key support where appropriate
+
+15. Deliverables
+
+Generate every file completely with working code. The application should run immediately after installing dependencies and adding the OpenAI API key.
+
+The final result should look like a professional SaaS AI assistant rather than a simple form.
