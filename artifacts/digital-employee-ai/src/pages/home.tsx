@@ -320,7 +320,7 @@ export default function Home() {
                               <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
                                 {item.result}
                               </p>
-                              <div className="flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                              <div className="flex items-center gap-2 mt-2">
                                 <Button size="sm" variant="secondary" className="h-8 flex-1" onClick={() => {
                                   if (ct) {
                                     handleSelectType(ct);
@@ -348,7 +348,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-[1400px]">
+      <main className="flex-1 container mx-auto px-4 py-4 md:py-8 max-w-[1400px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* LEFT COLUMN: Input & Config */}
@@ -478,7 +478,7 @@ export default function Home() {
           </div>
 
           {/* RIGHT COLUMN: Output Panel */}
-          <div className="lg:col-span-7 flex flex-col h-full min-h-[600px]">
+          <div className="lg:col-span-7 flex flex-col h-full min-h-[450px] lg:min-h-[600px]">
             <Card className="flex-1 flex flex-col shadow-sm border-0 ring-1 ring-border overflow-hidden">
               {/* Toolbar */}
               <div className="flex items-center justify-between border-b bg-muted/20 px-4 py-3">
@@ -490,7 +490,8 @@ export default function Home() {
                   {result && !isLoading && (
                     <div className="hidden sm:flex items-center gap-3 text-xs text-muted-foreground border-l pl-4 font-mono">
                       <span>{result.trim().split(/\s+/).filter(Boolean).length} words</span>
-                      <span>{result.length} chars</span>
+                      <span className="hidden md:inline">{result.length} chars</span>
+                      <span>~{Math.max(1, Math.ceil(result.trim().split(/\s+/).filter(Boolean).length / 200))} min read</span>
                     </div>
                   )}
                 </div>
@@ -556,14 +557,14 @@ export default function Home() {
                   </div>
                 )}
                 
-                <ScrollArea className="flex-1 p-6 lg:p-8 prose-container">
+                <ScrollArea className="flex-1 p-5 md:p-6">
                   {!result && !isLoading && !error && (
-                    <div className="h-full flex flex-col items-center justify-center text-muted-foreground opacity-60 py-20">
-                      <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mb-6 ring-1 ring-border shadow-inner">
-                        <Icons.Cpu className="h-8 w-8 text-primary/60" />
+                    <div className="h-full flex flex-col items-center justify-center text-muted-foreground py-20">
+                      <div className="w-16 h-16 rounded-2xl bg-muted/60 flex items-center justify-center mb-5 ring-1 ring-border">
+                        <Icons.Sparkles className="h-7 w-7 text-primary/40" />
                       </div>
-                      <p className="font-medium text-foreground mb-1">Ready for instructions</p>
-                      <p className="text-sm">Select a task and click generate to begin.</p>
+                      <p className="font-semibold text-foreground mb-2 text-base">Ready to generate</p>
+                      <p className="text-sm text-center max-w-[240px] leading-relaxed">Select a template, fill in the details, and click Generate Content.</p>
                     </div>
                   )}
                   
@@ -574,15 +575,17 @@ export default function Home() {
                   )}
                   
                   {isLoading && !result && (
-                    <div className="space-y-4 max-w-2xl py-4">
-                      <div className="h-4 bg-muted rounded-md w-3/4 animate-pulse" />
-                      <div className="h-4 bg-muted rounded-md w-full animate-pulse" />
-                      <div className="h-4 bg-muted rounded-md w-5/6 animate-pulse" />
-                      <div className="h-4 bg-muted rounded-md w-full animate-pulse" />
-                      <div className="h-4 bg-muted rounded-md w-2/3 animate-pulse" />
-                      <div className="flex items-center gap-3 pt-4 text-sm text-primary font-medium animate-pulse">
-                        <Icons.Sparkles className="h-4 w-4" />
-                        Drafting response...
+                    <div className="space-y-3 max-w-2xl py-4">
+                      <div className="h-3.5 bg-muted rounded-full w-3/4 animate-pulse" style={{ animationDelay: '0ms' }} />
+                      <div className="h-3.5 bg-muted rounded-full w-full animate-pulse" style={{ animationDelay: '100ms' }} />
+                      <div className="h-3.5 bg-muted rounded-full w-5/6 animate-pulse" style={{ animationDelay: '200ms' }} />
+                      <div className="h-3.5 bg-muted rounded-full w-full animate-pulse" style={{ animationDelay: '300ms' }} />
+                      <div className="h-3.5 bg-muted rounded-full w-2/3 animate-pulse" style={{ animationDelay: '400ms' }} />
+                      <div className="h-3.5 bg-muted rounded-full w-4/5 animate-pulse" style={{ animationDelay: '500ms' }} />
+                      <div className="h-3.5 bg-muted rounded-full w-1/2 animate-pulse" style={{ animationDelay: '600ms' }} />
+                      <div className="flex items-center gap-2 pt-5 text-sm text-primary font-medium">
+                        <Icons.Loader2 className="h-4 w-4 animate-spin" />
+                        <span className="animate-pulse">Generating your content...</span>
                       </div>
                     </div>
                   )}
