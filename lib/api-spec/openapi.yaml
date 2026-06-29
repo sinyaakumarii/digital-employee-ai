@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: generate
+    description: AI content generation
 paths:
   /healthz:
     get:
@@ -24,6 +26,37 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /generate:
+    post:
+      operationId: generateContent
+      tags: [generate]
+      summary: Generate AI content
+      description: Streams AI-generated content via SSE based on task type and input fields
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenerateInput"
+      responses:
+        "200":
+          description: SSE stream of generated content
+          content:
+            text/event-stream:
+              schema:
+                type: string
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +66,29 @@ components:
           type: string
       required:
         - status
-
+    GenerateInput:
+      type: object
+      required:
+        - taskType
+        - fields
+      properties:
+        taskType:
+          type: string
+          enum:
+            - social_media
+            - email
+            - summarize
+            - product_description
+            - customer_query
+        fields:
+          type: object
+          additionalProperties:
+            type: string
+          description: Task-specific input fields
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string

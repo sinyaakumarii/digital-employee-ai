@@ -5,9 +5,6 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
-export interface HealthStatus {
-  status: string;
-}
 
 export type GenerateInputTaskType = typeof GenerateInputTaskType[keyof typeof GenerateInputTaskType];
 
@@ -19,19 +16,3 @@ export const GenerateInputTaskType = {
   product_description: 'product_description',
   customer_query: 'customer_query',
 } as const;
-
-/**
- * Task-specific input fields
- */
-export type GenerateInputFields = {[key: string]: string};
-
-export interface GenerateInput {
-  taskType: GenerateInputTaskType;
-  /** Task-specific input fields */
-  fields: GenerateInputFields;
-}
-
-export interface ErrorResponse {
-  error: string;
-}
-
