@@ -1,10 +1,14 @@
 import { Router } from "express";
-import OpenAI from "openai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { GenerateContentBody } from "@workspace/api-zod";
 
 const router = Router();
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+function getClient() {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) throw new Error("GEMINI_API_KEY is not configured");
+  return new GoogleGenerativeAI(apiKey);
+}
 
 function buildPrompt(taskType: string, fields: Record<string, string>): string {
   switch (taskType) {
@@ -68,15 +72,12 @@ router.post("/generate", async (req, res) => {
   res.flushHeaders();
 
   try {
-    const stream = await openai.chat.completions.create({
-      model: "gpt-4.1-mini",
-      max_tokens: 1024,
-      messages: [{ role: "user", content: prompt }],
-      stream: true,
-    });
+    const genAI = getClient();
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const result = await model.generateContentStream(prompt);
 
-    for await (const chunk of stream) {
-      const content = chunk.choices[0]?.delta?.content;
+    for await (const chunk of result.stream) {
+      const content = chunk.text();
       if (content) {
         res.write(`data: ${JSON.stringify({ content })}\n\n`);
       }
