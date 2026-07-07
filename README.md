@@ -12,7 +12,7 @@ Built with **React**, **TypeScript**, and the blazing-fast **Groq API** (Llama m
 
 ---
 
-## 🔗 Live Demo
+## 🔗 try here 
 
 👉 **[ai-web-companion--sinyakumari6.replit.app](https://ai-web-companion--sinyakumari6.replit.app)**
 
