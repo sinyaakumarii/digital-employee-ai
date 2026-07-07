@@ -606,21 +606,19 @@ export default function Home() {
                     <Icons.Wand2 className="h-4 w-4 text-primary" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">AI Polish Actions</span>
                   </div>
-                  <ScrollArea className="pb-2">
-                    <div className="flex items-center gap-2 w-max">
-                      {AI_ACTIONS.map(action => (
-                        <Button 
-                          key={action.label} 
-                          variant="outline" 
-                          size="sm" 
-                          className="h-8 rounded-full text-xs bg-background hover:bg-primary/5 hover:text-primary hover:border-primary/30 transition-colors"
-                          onClick={() => handleActionGenerate(action.modifier)}
-                        >
-                          {action.label}
-                        </Button>
-                      ))}
-                    </div>
-                  </ScrollArea>
+                  <div className="flex flex-wrap gap-2">
+                    {AI_ACTIONS.map(action => (
+                      <Button 
+                        key={action.label} 
+                        variant="outline" 
+                        size="sm" 
+                        className="h-8 rounded-full text-xs bg-background hover:bg-primary/5 hover:text-primary hover:border-primary/30 transition-colors"
+                        onClick={() => handleActionGenerate(action.modifier)}
+                      >
+                        {action.label}
+                      </Button>
+                    ))}
+                  </div>
                 </div>
               )}
             </Card>
