@@ -37,7 +37,7 @@ export const AI_ACTIONS = [
   { label: 'Make Friendly', modifier: 'Rewrite this text to sound friendly, warm, and approachable.' },
   { label: 'Make Funny', modifier: 'Rewrite this text to be humorous and witty.' },
   { label: 'Make Persuasive', modifier: 'Rewrite this text to be highly persuasive and compelling.' },
-  { label: 'Add Emojis', modifier: 'Incorporate relevant emojis naturally throughout the text.' },
+  { label: 'Add Emojis', modifier: 'Add relevant emojis throughout the text to make it more engaging, without changing the core content or meaning.' },
   { label: 'Fix Grammar', modifier: 'Fix any grammar, spelling, or punctuation errors.' },
   { label: 'Generate Hashtags', modifier: 'Append 5-10 relevant hashtags to the end of the text.' },
   { label: 'Generate CTA', modifier: 'Add a strong Call To Action at the end of the text.' },
