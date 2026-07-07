@@ -63,7 +63,10 @@ router.post("/generate", async (req, res) => {
   }
 
   const { taskType, fields } = parsed.data;
-  const prompt = buildPrompt(taskType, fields as Record<string, string>);
+  const f = fields as Record<string, string>;
+  const prompt = f.modifier && f.previousOutput
+    ? `You are an expert text editor. Below is a piece of content:\n\n---\n${f.previousOutput}\n---\n\nYour task: ${f.modifier}\n\nReturn ONLY the modified text. Do not add any explanation, commentary, or preamble — just the revised content.`
+    : buildPrompt(taskType, f);
 
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
