@@ -1,0 +1,9 @@
+[build]
+  base = "artifacts/digital-employee-ai"
+  publish = "dist"
+  command = "pnpm --filter @workspace/digital-employee-ai... run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
